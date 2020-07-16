@@ -1,11 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <Title>Generic Rest Controller Application Feature Discovery</Title>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Ajay Sharma(AJ)</Authors>
+    <Company>Inglorious Bastards</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>In REST api there are common CRUD service interface for every model served by controller for each model. In most of the scenarios the code for implementing Create, Get, Index, Delete, Update for each model is same and writing the same code again in all the controllers can be avoided by implementing generics for the controllers. In this article i have also implemented generic implementation for the repository pattern for entity framework. It reduces the amount of code we need to implement REST service</Description>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <RepositoryType>public</RepositoryType>
+    <RepositoryUrl>https://github.com/ajays1991/GenericController</RepositoryUrl>
+    <PackageReleaseNotes>Added support for controller discovery for Generic Controllers.
+Currently support only Model type, Request Type, Response Type.</PackageReleaseNotes>
+    <PackageIcon>icon2.png</PackageIcon>
+    <PackageId>GenericRestController</PackageId>
+    <PackageProjectUrl>https://github.com/ajays1991/GenericController</PackageProjectUrl>
+    <PackageTags>ASPNETCORE .NET C#</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="..\..\..\..\Downloads\iconsflow\icon2.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
