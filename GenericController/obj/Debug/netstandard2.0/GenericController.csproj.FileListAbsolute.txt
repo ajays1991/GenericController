@@ -1,0 +1,9 @@
+C:\Users\Ajay-LNG\source\repos\GenericController\GenericController\bin\Debug\netstandard2.0\GenericController.deps.json
+C:\Users\Ajay-LNG\source\repos\GenericController\GenericController\bin\Debug\netstandard2.0\GenericController.dll
+C:\Users\Ajay-LNG\source\repos\GenericController\GenericController\bin\Debug\netstandard2.0\GenericController.pdb
+C:\Users\Ajay-LNG\source\repos\GenericController\GenericController\obj\Debug\netstandard2.0\GenericController.csprojAssemblyReference.cache
+C:\Users\Ajay-LNG\source\repos\GenericController\GenericController\obj\Debug\netstandard2.0\GenericController.AssemblyInfoInputs.cache
+C:\Users\Ajay-LNG\source\repos\GenericController\GenericController\obj\Debug\netstandard2.0\GenericController.AssemblyInfo.cs
+C:\Users\Ajay-LNG\source\repos\GenericController\GenericController\obj\Debug\netstandard2.0\GenericController.csproj.CoreCompileInputs.cache
+C:\Users\Ajay-LNG\source\repos\GenericController\GenericController\obj\Debug\netstandard2.0\GenericController.dll
+C:\Users\Ajay-LNG\source\repos\GenericController\GenericController\obj\Debug\netstandard2.0\GenericController.pdb
