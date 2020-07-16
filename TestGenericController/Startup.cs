@@ -15,8 +15,10 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 
 using Data;
+using Data.Repositories;
 using GenericController.ControllerFactory;
 using GenericController;
+using TestGenericController.Controllers;
 
 namespace TestGenericController
 {
@@ -37,8 +39,11 @@ namespace TestGenericController
                 );
             services.AddSingleton(mapperConfig.CreateMapper());
             services.AddDbContext<AlbumsDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AlbumsDBContext")), ServiceLifetime.Transient);
+            services.AddScoped(typeof(IAlbumsDBContext), typeof(AlbumsDBContext));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddDbContext<AlbumsDBContext>();
             services.AddControllers();
-            services.AddGenericController(TestGenericController.ControllerFactory.EntityTypes.model_types());
+            services.AddGenericController(TestGenericController.ControllerFactory.EntityTypes.model_types(), typeof(RestController<,,>));
             services.AddSwaggerGen();
         }
 

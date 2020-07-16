@@ -7,9 +7,14 @@ namespace GenericController.ControllerFactory
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     public class GenericRestControllerNameConvention : Attribute, IControllerModelConvention
     {
+        private Type GenericController { get; set; }
+        public GenericRestControllerNameConvention(Type _genericController)
+        {
+            this.GenericController = _genericController;
+        }
         public void Apply(ControllerModel controller)
         {
-            if (!controller.ControllerType.IsGenericType || controller.ControllerType.GetGenericTypeDefinition() != typeof(GenericController<,,>))
+            if (!controller.ControllerType.IsGenericType || controller.ControllerType.GetGenericTypeDefinition() != GenericController)
             {
                 return;
             }

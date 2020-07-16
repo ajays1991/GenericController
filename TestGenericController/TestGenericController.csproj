@@ -19,12 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="GenericController">
-      <HintPath>..\GenericController\bin\Debug\netstandard2.0\GenericController.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\GenericController\GenericController.csproj" />
   </ItemGroup>
 
 

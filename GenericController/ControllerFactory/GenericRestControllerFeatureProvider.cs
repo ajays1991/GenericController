@@ -10,9 +10,11 @@ namespace GenericController.ControllerFactory
     public class GenericRestControllerFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
     {
         private readonly Dictionary<TypeInfo, List<TypeInfo>> EntityTypes;
-        public GenericRestControllerFeatureProvider(Dictionary<TypeInfo, List<TypeInfo>> _entityTypes)
+        private readonly Type GenericController;
+        public GenericRestControllerFeatureProvider(Dictionary<TypeInfo, List<TypeInfo>> _entityTypes, Type _genericController)
         {
             this.EntityTypes = _entityTypes;
+            this.GenericController = _genericController;
         }
         public void PopulateFeature(IEnumerable<ApplicationPart> parts, ControllerFeature feature)
         {
@@ -21,8 +23,9 @@ namespace GenericController.ControllerFactory
                 var entity_type = model_type.Key;
                 var entity_request_types = model_type.Value[0];
                 Type[] typeArgs = { entity_type, model_type.Value[0], model_type.Value[1] };
-                var controller_type = typeof(GenericController<,,>).MakeGenericType(typeArgs).GetTypeInfo();
+                var controller_type = GenericController.MakeGenericType(typeArgs).GetTypeInfo();
                 feature.Controllers.Add(controller_type);
+
             }
         }
     }
