@@ -5,19 +5,19 @@
 This library is in Alpha. We will make an effort to support the library, but we reserve the right to make incompatible
 changes when necessary.
 
-## Current Version is 1.0.0
+## Current Version is 1.0.0 Target Framework netcoreapp3.1
 
 ## Installation
 
-Click Manage Nuget Packages on the project dependencies
+Click [Manage Nuget Packages](https://www.nuget.org/packages/GenericRestController/1.0.0) on the project dependencies and search GenericController
 
-This package is registered with IServiceCollection and injected into container using Microsoft.Extensions.DependencyInjection;
+This package is registered with `IServiceCollection` and injected into container using `Microsoft.Extensions.DependencyInjection`
 
 ### Basic working information
 
 This package takes in Dictionary class where each ModelType is mapped to its corresponding Request and Response models
 
-Create an static EntityTypes class in your project with method model_types which returns Dictionary<TypeInfo, List<TypeInfo>>. I am showing an example  where i have two database entities name Album and Artist and where each model type points to its own Request and Response Types.
+Create an static `EntityTypes` class in your project with method `model_types` which returns `Dictionary<TypeInfo, List<TypeInfo>>`. I am showing an example  where i have two database entities name Album and Artist and where each model type points to its own Request and Response Types.
 ```C#
 
 using System.Collections.Generic;
@@ -41,21 +41,23 @@ namespace YourNameSpace
 
 ```
 
-### Now we will add GenericController service container in the ConfigureService method and pass our entity types static dictionary. This will create controllers for all our models i.e it will add AlbumsController and ArtistsController.
+### Now we will add `GenericControlle`r service `container` in the `ConfigureService` method and pass our entity types static dictionary and opentype restcontroller implemented. This will create controllers for all our models i.e it will add `AlbumsController` and `ArtistsController`.
 
 ```C#
 
  public void ConfigureServices(IServiceCollection services)
 {
-    services.AddGenericController(TestGenericController.ControllerFactory.EntityTypes.model_types());
+    services.AddGenericController(TestGenericController.ControllerFactory.EntityTypes.model_types(), typeof(RestController<,,>));
 }
 
 ```
 
+You can modify the Opentype generic controller to pass even more entity specific types i.e if you are using mediator pattern to talk between persistence layer and controllers then you can edit your type dictionary to have RequestHandlers for Ablumn model like `TEntityHandler` which can reslove to AlbumEntityHandler.
+
 ### RestController Implementation.
 
-Now we implement RestController(open type generic controller) which implement IGenericController from GenericController.Controller.Interface.
-Here i am sharing my example where i am implementing my create, get method and on run time T, TRequest, TResponse will be resolved to proper types, like if you hit api/albums url T will be Albums, TRequest will be AlbumsRequest, TResponse will be AlbumsResponse.
+Now we implement `RestControlle`r(open type generic controller) which implement `IGenericController` from `GenericController.Controller.Interface`.
+Here i am sharing my example where i am implementing my create, get method and on run time T, TRequest, TResponse will be resolved to proper types, like if you hit api/albums url `T` will be `Albums`, `TRequest` will be `AlbumsRequest`, `TResponse` will be `AlbumsResponse`.
 
 I have used automapper for transation and Generic Rep
 You can use/contruct/implement any datacontext strategy and your own authentication and authorization strategies and decorators.
@@ -105,11 +107,11 @@ namespace TestGenericController.Controllers
 
 ```
 
-This Repository have a project TestGenericController for fully working solution using this Package.
+This Repository have a project `TestGenericController` for fully working solution using this Package.
 
 
 ### To Do
- Make GenericController to take dynamic number of types so that like if you want to implement Mediator it between persistence layer it should be flexible enough to take random generic types, right now it take only 3 types(T, TRequest, TResponse).
+ Make GenericController to take dynamic number of types so that like if you want to implement Mediator it between persistence layer it should be flexible enough to take random generic types, right now it take only 3 types(`T`, `TRequest`, `TResponse`).
 
 ## Support
 
