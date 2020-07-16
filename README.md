@@ -5,7 +5,7 @@
 This library is in Alpha. We will make an effort to support the library, but we reserve the right to make incompatible
 changes when necessary.
 
-## Current Version is 1.0.0
+## Current Version is 1.0.0 Target Framework netcoreapp3.1
 
 ## Installation
 
