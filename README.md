@@ -17,23 +17,24 @@ This package is registered with `IServiceCollection` and injected into container
 
 This package takes in Dictionary class where each ModelType is mapped to its corresponding Request and Response models
 
-Create an static `EntityTypes` class in your project with method `model_types` which returns `Dictionary<TypeInfo, List<TypeInfo>>`. I am showing an example  where i have two database entities name Album and Artist and where each model type points to its own Request and Response Types.
+Create an static `EntityTypes` class in your project with method `model_types` which returns `Dictionary<TypeInfo, Type[]>`. I am showing an example  where i have two database entities name Album and Artist and where each model type points to its own Request and Response Types.
 ```C#
 
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Data.entities;
 using TestGenericController.Entities;
 
-namespace YourNameSpace
+namespace TestGenericController.ControllerFactory
 {
     public static class EntityTypes
     {
-        public static Dictionary<TypeInfo, List<TypeInfo>> model_types()
+        public static Dictionary<TypeInfo, Type[]> model_types()
         {
-            return new Dictionary<TypeInfo, List<TypeInfo>>() {
-                { typeof(Albums).GetTypeInfo(), new List<TypeInfo>() { typeof(AlbumRequest).GetTypeInfo(), typeof(AlbumResponse).GetTypeInfo() } },
-                { typeof(Artists).GetTypeInfo(), new List<TypeInfo>() { typeof(ArtistRequest).GetTypeInfo(), typeof(ArtistResponse).GetTypeInfo() } }
+            return new Dictionary<TypeInfo, Type[]>()
+            {
+                { typeof(Albums).GetTypeInfo(), new Type[] { typeof(Albums) ,typeof(AlbumRequest).GetTypeInfo(), typeof(AlbumResponse).GetTypeInfo() } }
             };
         }
     }
