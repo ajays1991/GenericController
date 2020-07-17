@@ -7,7 +7,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class SwaggerGenServiceCollectionExtensions
     {
-        public static IServiceCollection AddGenericController(this IServiceCollection services, Dictionary<TypeInfo, List<TypeInfo>> entities, Type genericController)
+        public static IServiceCollection AddGenericController(this IServiceCollection services, Dictionary<TypeInfo, Type[]> entities, Type genericController)
         {
             var mvcBuilder = services.AddMvcCore();
             mvcBuilder.AddMvcOptions(o => o.Conventions.Add(new GenericRestControllerNameConvention(genericController)));

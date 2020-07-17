@@ -3841,7 +3841,7 @@
     "C:\\Users\\Ajay-LNG\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\Ajay-LNG\\source\\repos\\GenericController\\GenericController\\GenericController.csproj",
       "projectName": "GenericRestController",
