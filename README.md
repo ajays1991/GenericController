@@ -41,16 +41,18 @@ namespace YourNameSpace
 
 ```
 
-### Now we will add `GenericControlle`r service `container` in the `ConfigureService` method and pass our entity types static dictionary. This will create controllers for all our models i.e it will add `AlbumsController` and `ArtistsController`.
+### Now we will add `GenericControlle`r service `container` in the `ConfigureService` method and pass our entity types static dictionary and opentype restcontroller implemented. This will create controllers for all our models i.e it will add `AlbumsController` and `ArtistsController`.
 
 ```C#
 
  public void ConfigureServices(IServiceCollection services)
 {
-    services.AddGenericController(TestGenericController.ControllerFactory.EntityTypes.model_types());
+    services.AddGenericController(TestGenericController.ControllerFactory.EntityTypes.model_types(), typeof(RestController<,,>));
 }
 
 ```
+
+You can modify the Opentype generic controller to pass even more entity specific types i.e if you are using mediator pattern to talk between persistence layer and controllers then you can edit your type dictionary to have RequestHandlers for Ablumn model like `TEntityHandler` which can reslove to AlbumEntityHandler.
 
 ### RestController Implementation.
 
