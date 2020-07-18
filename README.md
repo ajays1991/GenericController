@@ -40,7 +40,8 @@ namespace TestGenericController.ControllerFactory
         {
             return new Dictionary<TypeInfo, Type[]>()
             {
-                { typeof(Albums).GetTypeInfo(), new Type[] { typeof(Albums) ,typeof(AlbumRequest).GetTypeInfo(), typeof(AlbumResponse).GetTypeInfo() } }
+                { typeof(Albums).GetTypeInfo(), new Type[] { typeof(Albums).GetTypeInfo() ,typeof(AlbumRequest).GetTypeInfo(), typeof(AlbumResponse).GetTypeInfo() } },
+                { typeof(Artists).GetTypeInfo(), new Type[] { typeof(Artists).GetTypeInfo() ,typeof(ArtistRequest).GetTypeInfo(), typeof(ArtistResponse).GetTypeInfo() } }
             };
         }
     }
