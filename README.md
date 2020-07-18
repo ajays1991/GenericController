@@ -118,8 +118,9 @@ This Repository have a project `TestGenericController` for fully working solutio
 
 
 ### To Do
- Make GenericController to take dynamic number of types so that like if you want to implement Mediator it between persistence layer it should be flexible enough to take random generic types, right now it take only 3 types(`T`, `TRequest`, `TResponse`).
 
+ Make GenericController to offer a `SearchManager` interface to build queries by plugging in any configurable adapter for MSSQL, CosmosDB, Elasticsearch Or MongoDB
 ## Support
+
 
 Please [report bugs at the project on Github](https://github.com/ajays1991/GenericController/issues). Please don't hesistate to ask questions as issues in the repository. I am open to hear suggestions to improve this furthur and in version 2.0.0 version i am planning to rollout my first  Todo.
