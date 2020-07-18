@@ -1,15 +1,21 @@
 # Generic Controller ApplicationFeatureProvider
 
-## Alpha
+## Note
 
-This library is in Alpha. We will make an effort to support the library, but we reserve the right to make incompatible
+We will make an effort to support the library, but we reserve the right to make incompatible
 changes when necessary.
 
 ## Current Version is 1.0.0 Target Framework netcoreapp3.1
 
 ## Installation
 
-Click [Manage Nuget Packages](https://www.nuget.org/packages/GenericRestController/1.0.0) on the project dependencies and search GenericController
+You can install the package from package manager console by running the following command in the package manager console
+
+`PM> Install-Package GenericRestController -Version 1.0.1`
+
+OR
+
+Click [Manage Nuget Packages](https://www.nuget.org/packages/GenericRestController/1.0.0) on the project dependencies and search GenericRestController
 
 This package is registered with `IServiceCollection` and injected into container using `Microsoft.Extensions.DependencyInjection`
 
